@@ -23,7 +23,7 @@
                                                                                                         type="button"
                                                                                                         value="登录"
                                                                                                         class="btn01"/><a
-                href="#">忘记密码</a>|<a href="login.html">免费注册</a></div>
+                href="#">忘记密码</a>|<a href="login">免费注册</a></div>
 
         <!--左菜单-->
         <div class="menu">
@@ -32,7 +32,7 @@
                     <td height="400" valign="top">
                         <h1 class="aoff"><a href="review">勇闯足迹</a></h1>
                         <h1 class="aoff"><a href="footage">精彩花絮</a></h1>
-                        <h1 class="aoff"><a href="back02.html">活动视频</a></h1>
+                        <h1 class="aoff"><a href="video">活动视频</a></h1>
                     </td>
                 </tr>
             </table>
@@ -98,11 +98,11 @@
         <div class="nav">
             <ul>
                 <li class="nav01"><a href="index" class="aoff"></a></li>
-                <li class="nav02"><a href="about.html" class="aoff"></a></li>
-                <li class="nav03"><a href="news.html" class="aoff"></a></li>
+                <li class="nav02"><a href="about" class="aoff"></a></li>
+                <li class="nav03"><a href="news" class="aoff"></a></li>
                 <li class="nav04"><a href="review" class="aoff"></a></li>
-                <li class="nav05"><a href="sales.html" class="aoff"></a></li>
-                <li class="nav06"><a href="work.html" class="aoff"></a></li>
+                <li class="nav05"><a href="sales" class="aoff"></a></li>
+                <li class="nav06"><a href="work" class="aoff"></a></li>
             </ul>
         </div>
         <script type="text/javascript">

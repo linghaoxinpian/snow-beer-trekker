@@ -2,8 +2,10 @@ package com.shmilyou.snowbeertrekker.controller;
 
 import com.shmilyou.snowbeertrekker.entity.Footage;
 import com.shmilyou.snowbeertrekker.entity.Review;
+import com.shmilyou.snowbeertrekker.entity.Video;
 import com.shmilyou.snowbeertrekker.service.FootageService;
 import com.shmilyou.snowbeertrekker.service.ReviewService;
+import com.shmilyou.snowbeertrekker.service.VideoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class IndexController {
     @Autowired
     FootageService footageService;
 
+    @Autowired
+    VideoService videoService;
+
     @RequestMapping(value = {"/","index","index.html"})
     public String index() {
         return "index";
@@ -41,5 +46,12 @@ public class IndexController {
         modelAndView.addObject("footages",footages);
         modelAndView.setViewName("footage");
         return modelAndView;
+    }
+
+    @RequestMapping("video")
+    public String video(ModelMap modelMap){
+        List<Video> videos = videoService.findAll();
+        modelMap.addAttribute("videos",videos);
+        return "video";
     }
 }
