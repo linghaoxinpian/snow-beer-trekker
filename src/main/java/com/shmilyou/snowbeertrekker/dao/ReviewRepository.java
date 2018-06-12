@@ -5,10 +5,10 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-public interface ReviewRepository {
+public interface ReviewRepository extends BaseRepository<Review>{
 
     @Select("SELECT * FROM review")
     List<Review> findAll();
 
-    Long insertOne(Review review);
+    void insertOne(Review review);
 }

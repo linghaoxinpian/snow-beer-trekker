@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-public interface VideoRepository {
+public interface VideoRepository extends BaseRepository<Video>{
 
     @Select("SELECT * FROM video")
     List<Video> findAll();

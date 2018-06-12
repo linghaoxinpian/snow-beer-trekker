@@ -4,11 +4,6 @@ import com.shmilyou.snowbeertrekker.entity.Footage;
 
 import java.util.List;
 
-public interface FootageService {
+public interface FootageService extends BaseService<Footage>{
 
-    Footage findOne(Long id);
-
-    void addOne(Footage footage);
-
-    List<Footage> findAll();
 }

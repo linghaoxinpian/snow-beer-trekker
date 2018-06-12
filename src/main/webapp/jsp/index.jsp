@@ -17,7 +17,7 @@
 
 <body>
 <div class="mainbox">
-    <div class="topbox"><div class="topbg">会员登录<input name="" type="text" class="text01" /><input name="" type="text" class="text01" /><input name="" type="button"  value="登录" class="btn01"/><a href="static/#">忘记密码</a>|<a href="static/login.html">免费注册</a></div>
+    <div class="topbox"><div class="topbg">会员登录<input name="" type="text" class="text01" /><input name="" type="text" class="text01" /><input name="" type="button"  value="登录" class="btn01"/><a href="static/#">忘记密码</a>|<a href="static/login">免费注册</a></div>
         <div class="p1"><a href="static/#"><img src="static/images/p1.png" /></a></div>
 
     </div>
@@ -51,12 +51,12 @@
     <div class="navbox" >
         <div class="nav">
             <ul>
-                <li class="nav01"><a href="static/index.html"  class="aoff"></a></li>
-                <li  class="nav02"><a href="static/about.html" class="aoff"></a></li>
-                <li  class="nav03"><a href="static/news.html" class="aoff"></a></li>
-                <li  class="nav04"><a href="static/back.html" class="aoff"></a></li>
-                <li  class="nav05"><a href="static/sales.html" class="aoff"></a></li>
-                <li  class="nav06"><a href="static/work.html" class="aoff"></a></li>
+                <li class="nav01"><a href="index"  class="aoff"></a></li>
+                <li  class="nav02"><a href="about" class="aoff"></a></li>
+                <li  class="nav03"><a href="news" class="aoff"></a></li>
+                <li  class="nav04"><a href="review" class="aoff"></a></li>
+                <li  class="nav05"><a href="sales" class="aoff"></a></li>
+                <li  class="nav06"><a href="work" class="aoff"></a></li>
             </ul>
         </div>
         <script type="text/javascript">

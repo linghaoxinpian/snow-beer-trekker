@@ -1,6 +1,6 @@
 package com.shmilyou.snowbeertrekker.entity;
 
-public class Video {
+public class Video extends BasePojo {
     private Long id;
 
     private String name;

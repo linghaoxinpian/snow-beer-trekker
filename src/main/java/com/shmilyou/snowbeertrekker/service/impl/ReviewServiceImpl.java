@@ -1,5 +1,6 @@
 package com.shmilyou.snowbeertrekker.service.impl;
 
+import com.shmilyou.snowbeertrekker.dao.BaseRepository;
 import com.shmilyou.snowbeertrekker.dao.ReviewRepository;
 import com.shmilyou.snowbeertrekker.entity.Review;
 import com.shmilyou.snowbeertrekker.service.ReviewService;
@@ -10,16 +11,11 @@ import java.util.List;
 
 
 @Service
-public class ReviewServiceImpl implements ReviewService {
+public class ReviewServiceImpl extends BaseServiceImpl<Review> implements ReviewService {
 
     @Autowired
-    ReviewRepository reviewRepository;
-
-    public List<Review> findAllReview() {
-        return reviewRepository.findAll();
+    ReviewServiceImpl(ReviewRepository reviewRepository) {
+        super(reviewRepository);
     }
 
-    public Long addOne(Review review){
-        return reviewRepository.insertOne(review);
-    }
 }

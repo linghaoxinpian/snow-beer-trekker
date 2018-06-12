@@ -35,7 +35,7 @@ public class IndexController {
 
     @RequestMapping("review")
     public String review(ModelMap modelMap) {
-        List<Review> reviews = reviewService.findAllReview();
+        List<Review> reviews = reviewService.findAll();
         modelMap.addAttribute("reviews", reviews);
         return "review";
     }

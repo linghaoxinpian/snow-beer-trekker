@@ -1,7 +1,7 @@
 package com.shmilyou.snowbeertrekker.entity;
 
 //幕后花絮
-public class Footage {
+public class Footage extends BasePojo{
     private Long id;
 
     private String content;

@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-public interface FootageRepository {
+public interface FootageRepository extends BaseRepository<Footage>{
 
     Footage findOne(Long id);
 

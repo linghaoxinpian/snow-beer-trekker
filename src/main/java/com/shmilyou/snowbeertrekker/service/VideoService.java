@@ -4,8 +4,6 @@ import com.shmilyou.snowbeertrekker.entity.Video;
 
 import java.util.List;
 
-public interface VideoService {
-    List<Video> findAll();
+public interface VideoService extends BaseService<Video>{
 
-    void addOne(Video video);
 }
