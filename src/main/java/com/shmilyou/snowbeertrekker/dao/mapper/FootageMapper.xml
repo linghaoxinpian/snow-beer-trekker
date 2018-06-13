@@ -9,7 +9,7 @@
     </insert>
 
     <select id="findOne" resultType="com.shmilyou.snowbeertrekker.entity.Footage">
-        SELECT *
+        <include refid="base.select" />
         FROM footage
         WHERE id=#{id}
     </select>

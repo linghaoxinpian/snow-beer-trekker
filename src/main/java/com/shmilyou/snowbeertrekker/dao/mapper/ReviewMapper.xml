@@ -7,4 +7,9 @@
         INSERT INTO Review(title,content,photo,`date`)
         VALUES (#{title},#{content},#{photo},#{date})
     </insert>
+
+    <select id="findAll" resultType="com.shmilyou.snowbeertrekker.entity.Review">
+        <include refid="base.select" />
+        review
+    </select>
 </mapper>
