@@ -163,46 +163,10 @@
     <div class="logo"><img src="static/images/man.png"/></div>
     <div class="hill"><img src="static/images/hill_sub.png"/></div>
     <div class="leg"><img src="static/images/leg_sub.png" width="714" height="100%"/></div>
-    <div class="leftbtn"><a href="#"><img src="static/images/btn02.png" height="144"/></a></div>
+    <%@include file="layout/left.jsp"%>
     <div class="drink"><img src="static/images/drink.png"/></div>
 
-    <div class="bottombg">
-        <div class="bottombox_sub">
-            <div class="prize"><a href="#"></a></div>
-        </div>
-    </div>
-
-
-    <!--新闻-->
-    <!--新闻-->
-
-
-    <!--导航-->
-    <div class="navboxSub">
-        <div class="nav">
-            <ul>
-                <li class="nav01"><a href="index" class="aoff"></a></li>
-                <li class="nav02"><a href="about" class="aoff"></a></li>
-                <li class="nav03"><a href="news" class="aoff"></a></li>
-                <li class="nav04"><a href="review" class="aoff"></a></li>
-                <li class="nav05"><a href="sales" class="aoff"></a></li>
-                <li class="nav06"><a href="work" class="aoff"></a></li>
-            </ul>
-        </div>
-        <script type="text/javascript">
-            jQuery(".nav li a").bind("mouseover", function () {
-                jQuery(this).attr("class", "aon");
-            });
-
-            jQuery(".nav li a").bind("mouseleave", function () {
-                jQuery(this).attr("class", "aoff");
-            });
-        </script>
-    </div>
-
-    <!--导航-->
-
-
+    <%@include file="layout/bottom.jsp"%>
 </div>
 
 
