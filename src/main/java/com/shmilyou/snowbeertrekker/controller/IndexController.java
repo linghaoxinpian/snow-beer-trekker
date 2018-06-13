@@ -28,7 +28,7 @@ public class IndexController {
     @Autowired
     VideoService videoService;
 
-    @RequestMapping(value = {"/","index","index.html"})
+    @RequestMapping(value = {"/", "index", "index.html"})
     public String index() {
         return "index";
     }
@@ -41,17 +41,37 @@ public class IndexController {
     }
 
     @RequestMapping("footage")
-    public ModelAndView footage(ModelAndView modelAndView){
+    public ModelAndView footage(ModelAndView modelAndView) {
         List<Footage> footages = footageService.findAll();
-        modelAndView.addObject("footages",footages);
+        modelAndView.addObject("footages", footages);
         modelAndView.setViewName("footage");
         return modelAndView;
     }
 
     @RequestMapping("video")
-    public String video(ModelMap modelMap){
+    public String video(ModelMap modelMap) {
         List<Video> videos = videoService.findAll();
-        modelMap.addAttribute("videos",videos);
+        modelMap.addAttribute("videos", videos);
         return "video";
+    }
+
+    @RequestMapping("about")
+    public String about() {
+        return "about";
+    }
+
+    @RequestMapping("news")
+    public String news(){
+        return "news";
+    }
+
+    @RequestMapping("sales")
+    public String sales(){
+        return "sales";
+    }
+
+    @RequestMapping("work")
+    public String work(){
+        return "work";
     }
 }
