@@ -20,12 +20,7 @@
 <body>
 <div class="mainbox">
     <div class="topbox">
-        <div class="topbg">会员登录<input name="" type="text" class="text01"/><input name="" type="text"
-                                                                                 class="text01"/><input name=""
-                                                                                                        type="button"
-                                                                                                        value="登录"
-                                                                                                        class="btn01"/><a
-                href="static/#">忘记密码</a>|<a href="static/login.html">免费注册</a></div>
+       <%@include file="layout/topLogin.jsp"%>
 
         <!--左菜单-->
         <div class="menu">
@@ -34,36 +29,27 @@
                     <td height="400" valign="top">
                         <h1 class="aoff"><a href="review">勇闯足迹</a></h1>
                         <h1 class="aoff"><a href="footage">精彩花絮</a></h1>
-                        <h1 class="aoff"><a href="static/back02.html">活动视频</a></h1>
+                        <h1 class="aoff"><a href="video">活动视频</a></h1>
                     </td>
                 </tr>
             </table>
         </div>
-        <script type="text/javascript">
-            jQuery(".menu h1").bind("mouseover", function () {
-                jQuery(this).attr("class", "aon");
-            });
-
-            jQuery(".menu h1").bind("mouseleave", function () {
-                jQuery(this).attr("class", "aoff");
-            });
-        </script>
+        <script src="../static/script/menuBottom.js" ></script>
         <!--左菜单-->
 
         <!--右侧内容-->
-
         <div class="rightbox">
-            <div class="scrllobox" style="padding-top:65px;">
-                <div class="yearbox">
-                    <ul>
-                        <c:forEach var="review" items="${reviews}" varStatus="status">
-                            <li id="${review.photo.substring(0,review.photo.lastIndexOf('.'))}" <c:if test="${status.index==0}">class="aon"</c:if> ><a href="#"
-                                                                                                   title="<fmt:formatDate value="${review.date}" pattern="yyyy" />"></a>
-                            </li>
-                        </c:forEach>
-                    </ul>
-                </div>
-                <div class="clear_1"></div>
+                <div class="scrllobox" style="padding-top:65px;">
+                    <div class="yearbox">
+                        <ul>
+                            <c:forEach var="review" items="${reviews}" varStatus="status">
+                                <li id="${review.photo.substring(0,review.photo.lastIndexOf('.'))}" <c:if test="${status.index==0}">class="aon"</c:if> ><a href="#"
+                                                                                                                                                           title="<fmt:formatDate value="${review.date}" pattern="yyyy" />"></a>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                    </div>
+                    <div class="clear_1"></div>
 
                 <div class="back">
                     <DIV class="blk_29">
@@ -116,17 +102,9 @@
 
     </div>
 
-
-    <div class="logo"><img src="static/images/man.png"/></div>
-    <div class="hill"><img src="static/images/hill_sub.png"/></div>
-    <div class="leg"><img src="static/images/leg_sub.png" width="714" height="100%"/></div>
-    <%@include file="layout/left.jsp"%>
-    <div class="drink"><img src="static/images/drink.png"/></div>
-
+    <%@include file="layout/main.jsp"%>
     <%@include file="layout/bottom.jsp"%>
 
 </div>
-
-
 </body>
 </html>

@@ -19,12 +19,7 @@
 <body>
 <div class="mainbox">
     <div class="topbox">
-        <div class="topbg">会员登录<input name="" type="text" class="text01"/><input name="" type="text"
-                                                                                 class="text01"/><input name=""
-                                                                                                        type="button"
-                                                                                                        value="登录"
-                                                                                                        class="btn01"/><a
-                href="#">忘记密码</a>|<a href="login">免费注册</a></div>
+        <%@include file="layout/topLogin.jsp" %>
 
         <!--左菜单-->
         <div class="menu">
@@ -38,19 +33,10 @@
                 </tr>
             </table>
         </div>
-        <script type="text/javascript">
-            jQuery(".menu h1").bind("mouseover", function () {
-                jQuery(this).attr("class", "aon");
-            });
-
-            jQuery(".menu h1").bind("mouseleave", function () {
-                jQuery(this).attr("class", "aoff");
-            });
-        </script>
+        <script src="../static/script/menuBottom.js"></script>
         <!--左菜单-->
 
         <!--右侧内容-->
-
         <div class="rightbox">
 
             <div class="scrllobox" style="padding-top:60px;">
@@ -159,14 +145,9 @@
 
     </div>
 
+    <%@include file="layout/main.jsp" %>
+    <%@include file="layout/bottom.jsp" %>
 
-    <div class="logo"><img src="static/images/man.png"/></div>
-    <div class="hill"><img src="static/images/hill_sub.png"/></div>
-    <div class="leg"><img src="static/images/leg_sub.png" width="714" height="100%"/></div>
-    <%@include file="layout/left.jsp"%>
-    <div class="drink"><img src="static/images/drink.png"/></div>
-
-    <%@include file="layout/bottom.jsp"%>
 </div>
 
 
