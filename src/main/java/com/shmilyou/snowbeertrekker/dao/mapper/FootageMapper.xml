@@ -10,7 +10,7 @@
 
     <select id="findOne" resultType="com.shmilyou.snowbeertrekker.entity.Footage">
         <include refid="base.select" />
-        FROM footage
+        footage
         WHERE id=#{id}
     </select>
 </mapper>

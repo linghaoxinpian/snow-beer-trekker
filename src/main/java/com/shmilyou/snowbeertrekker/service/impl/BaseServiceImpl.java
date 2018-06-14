@@ -32,4 +32,9 @@ public class BaseServiceImpl<T extends BasePojo> implements BaseService<T> {
     public void addOne(T pojo) {
         baseRepository.insertOne(pojo);
     }
+
+    @Override
+    public <S> T findOne(Class<S> clazz, S id) {
+        return baseRepository.findOne(clazz,id);
+    }
 }

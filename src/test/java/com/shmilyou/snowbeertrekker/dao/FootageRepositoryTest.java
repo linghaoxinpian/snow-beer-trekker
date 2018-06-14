@@ -24,7 +24,7 @@ public class FootageRepositoryTest {
         footageRepository.insertOne(footage);
         Assert.notNull(footage.getId());
 
-        Footage footage1 = footageRepository.findOne(footage.getId());
+        Footage footage1 = footageRepository.findOne(Long.class,footage.getId());
         Assert.notNull(footage1);
     }
 }

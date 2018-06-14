@@ -1,9 +1,7 @@
 package com.shmilyou.snowbeertrekker.dao;
 
 import com.shmilyou.snowbeertrekker.entity.BasePojo;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,4 +11,5 @@ public interface BaseRepository<T extends BasePojo> {
 
     void insertOne(T video);
 
+    <S> T findOne(Class<S> clazz,@Param("id") S id);
 }

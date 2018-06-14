@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ReviewRepository extends BaseRepository<Review>{
 
-    List<Review> findAll();
-
-    void insertOne(Review review);
+//    List<Review> findAll();
+//
+//    void insertOne(Review review);
 }

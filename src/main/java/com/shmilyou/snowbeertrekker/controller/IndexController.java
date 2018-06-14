@@ -1,11 +1,14 @@
 package com.shmilyou.snowbeertrekker.controller;
 
 import com.shmilyou.snowbeertrekker.entity.Footage;
+import com.shmilyou.snowbeertrekker.entity.News;
 import com.shmilyou.snowbeertrekker.entity.Review;
 import com.shmilyou.snowbeertrekker.entity.Video;
 import com.shmilyou.snowbeertrekker.service.FootageService;
+import com.shmilyou.snowbeertrekker.service.NewsService;
 import com.shmilyou.snowbeertrekker.service.ReviewService;
 import com.shmilyou.snowbeertrekker.service.VideoService;
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +27,10 @@ public class IndexController {
     ReviewService reviewService;
     @Autowired
     FootageService footageService;
-
     @Autowired
     VideoService videoService;
+    @Autowired
+    NewsService newsService;
 
     @RequestMapping(value = {"/", "index", "index.html"})
     public String index() {
@@ -73,5 +77,19 @@ public class IndexController {
     @RequestMapping("work")
     public String work(){
         return "work";
+    }
+
+    @RequestMapping("topNews")
+    public String topNews(ModelMap map){
+        List<News> news = newsService.findAll();
+        map.addAttribute("news",news);
+        return "top_news";
+    }
+
+    @RequestMapping("display")
+    public String display(@Param("id")Long id,ModelMap modelMap){
+        News news = newsService.findOne(Long.class, id);
+        modelMap.addAttribute("news",news);
+        return "display";
     }
 }

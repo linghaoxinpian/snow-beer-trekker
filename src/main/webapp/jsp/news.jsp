@@ -17,36 +17,20 @@
 <body>
 <div class="mainbox">
     <div class="topbox">
-        <div class="topbg">会员登录<input name="" type="text" class="text01"/><input name="" type="text"
-                                                                                 class="text01"/><input name=""
-                                                                                                        type="button"
-                                                                                                        value="登录"
-                                                                                                        class="btn01"/><a
-                href="#">忘记密码</a>|<a href="login.html">免费注册</a></div>
-
+        <%@include file="layout/topLogin.jsp"%>
         <!--左菜单-->
         <div class="menu">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td height="400" valign="top">
-                        <h1 class="aoff"><a href="news01.html">头条新闻</a></h1>
+                        <h1 class="aoff"><a href="topNews">头条新闻</a></h1>
                         <h1 class="aoff"><a href="#">赛程安排</a></h1>
                         <h1 class="aoff"><a href="#">勇者风采</a></h1>
-
-
                     </td>
                 </tr>
             </table>
         </div>
-        <script type="text/javascript">
-            jQuery(".menu h1").bind("mouseover", function () {
-                jQuery(this).attr("class", "aon");
-            });
-
-            jQuery(".menu h1").bind("mouseleave", function () {
-                jQuery(this).attr("class", "aoff");
-            });
-        </script>
+        <script src="../static/script/menuBottom.js"></script>
         <!--左菜单-->
 
         <!--右侧内容-->
