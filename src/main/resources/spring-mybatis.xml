@@ -40,6 +40,7 @@
         <property name="dataSource" ref="dataSource"/>
         <!-- mapperLocation属性是扫描"接口实现"的xml文件 -->
         <property name="mapperLocations" value="classpath:com/shmilyou/snowbeertrekker/dao/mapper/*.xml"></property>
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -54,10 +55,6 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
-
-
-
-
 
 
 

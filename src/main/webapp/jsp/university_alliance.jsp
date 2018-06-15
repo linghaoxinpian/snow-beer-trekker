@@ -40,101 +40,102 @@
             <div class="scrllobox" style="padding:30px 66px 0 66px;">
                 <div class="workbox01">
                     <h1>高校社团活动申请合作入口:</h1>
-                    <table width="100%" border="0" cellspacing="3" cellpadding="0">
-                        <tr>
-                            <td width="191" align="right" class="lefttitle">社团名称：</td>
-                            <td colspan="3"><label>
-                                <input type="text" name="textfield" id="textfield" class="text02"/>
-                            </label></td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="lefttitle">推荐社团名称：</td>
-                            <td colspan="3"><input type="text" name="textfield2" id="textfield2" class="text02"
-                                                   style="width:264px;"/></td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="lefttitle">所属学校：</td>
-                            <td colspan="3"><input type="text" name="textfield3" id="textfield3" class="text02"/></td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="lefttitle">社团负责人：</td>
-                            <td colspan="3"><input type="text" name="textfield4" id="textfield4" class="text02"
-                                                   style="width:264px;"/>
-                                可填无
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="lefttitle">社团负责人联系方式：</td>
-                            <td colspan="3"><input type="text" name="textfield5" id="textfield5" class="text02"/>
-                                通讯地址、手机、QQ
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="lefttitle">社团负责人账号：</td>
-                            <td colspan="3"><input type="text" name="textfield6" id="textfield6" class="text02"
-                                                   style="width:284px;"/>
-                                登陆勇闯天涯官网的账号，可填无
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="lefttitle">社团现有成员数量：</td>
-                            <td width="155"><input type="text" name="textfield7" id="textfield7" class="text02"
-                                                   style="width:100px;"/></td>
-                            <td width="79" align="center">社团网站：</td>
-                            <td width="265"><input type="text" name="textfield13" id="textfield13" class="text02"
-                                                   style="width:160px;"/>
-                                可填无
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="lefttitle">社团微博地址：</td>
-                            <td colspan="3"><input type="text" name="textfield8" id="textfield8" class="text02"/>
-                                可填无
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="lefttitle">社团曾参加的活动/奖励：</td>
-                            <td colspan="3"><input type="text" name="textfield9" id="textfield9" class="text02"
-                                                   style="width:264px;"/>
-                                可填无
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="lefttitle">社团所属部门、指导教师姓名：</td>
-                            <td colspan="3"><input type="text" name="textfield10" id="textfield10" class="text02"/>
-                                若是，请填写户外俱乐部名称
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="lefttitle">指导教师联系方式：</td>
-                            <td colspan="3"><input type="text" name="textfield11" id="textfield11" class="text02"
-                                                   style="width:264px;"/>
-                                可填无
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="lefttitle">学校经常有哪些活动：</td>
-                            <td colspan="3"><input type="text" name="textfield12" id="textfield12" class="text02"/>
-                                可填无
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="lefttitle">目前您是：</td>
-                            <td colspan="3"><label>
-                                <input type="radio" name="radio" id="radio" value="radio"/>
-                            </label>社会人士 <label>
-                                <input type="radio" name="radio" id="radio" value="radio"/>
-                            </label> 大学生
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td colspan="3" style="padding-top:8px;"><input name="" type="image"
-                                                                            src="images/btn03.gif"/></td>
-                        </tr>
-                    </table>
-
-
+                    <form action="university_alliance">
+                        <table width="100%" border="0" cellspacing="3" cellpadding="0">
+                            <tr>
+                                <td width="191" align="right" class="lefttitle">社团名称：</td>
+                                <td colspan="3"><label>
+                                    <input type="text" name="textfield" id="textfield" class="text02"/>
+                                </label></td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="lefttitle">推荐社团名称：</td>
+                                <td colspan="3"><input type="text" name="textfield2" id="textfield2" class="text02"
+                                                       style="width:264px;"/></td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="lefttitle">所属学校：</td>
+                                <td colspan="3"><input type="text" name="textfield3" id="textfield3" class="text02"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="lefttitle">社团负责人：</td>
+                                <td colspan="3"><input type="text" name="textfield4" id="textfield4" class="text02"
+                                                       style="width:264px;"/>
+                                    可填无
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="lefttitle">社团负责人联系方式：</td>
+                                <td colspan="3"><input type="text" name="textfield5" id="textfield5" class="text02"/>
+                                    通讯地址、手机、QQ
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="lefttitle">社团负责人账号：</td>
+                                <td colspan="3"><input type="text" name="textfield6" id="textfield6" class="text02"
+                                                       style="width:284px;"/>
+                                    登陆勇闯天涯官网的账号，可填无
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="lefttitle">社团现有成员数量：</td>
+                                <td width="155"><input type="text" name="textfield7" id="textfield7" class="text02"
+                                                       style="width:100px;"/></td>
+                                <td width="79" align="center">社团网站：</td>
+                                <td width="265"><input type="text" name="textfield13" id="textfield13" class="text02"
+                                                       style="width:160px;"/>
+                                    可填无
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="lefttitle">社团微博地址：</td>
+                                <td colspan="3"><input type="text" name="textfield8" id="textfield8" class="text02"/>
+                                    可填无
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="lefttitle">社团曾参加的活动/奖励：</td>
+                                <td colspan="3"><input type="text" name="textfield9" id="textfield9" class="text02"
+                                                       style="width:264px;"/>
+                                    可填无
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="lefttitle">社团所属部门、指导教师姓名：</td>
+                                <td colspan="3"><input type="text" name="textfield10" id="textfield10" class="text02"/>
+                                    若是，请填写户外俱乐部名称
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="lefttitle">指导教师联系方式：</td>
+                                <td colspan="3"><input type="text" name="textfield11" id="textfield11" class="text02"
+                                                       style="width:264px;"/>
+                                    可填无
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="lefttitle">学校经常有哪些活动：</td>
+                                <td colspan="3"><input type="text" name="textfield12" id="textfield12" class="text02"/>
+                                    可填无
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="lefttitle">目前您是：</td>
+                                <td colspan="3"><label>
+                                    <input type="radio" name="radio" id="radio" value="radio"/>
+                                </label>社会人士 <label>
+                                    <input type="radio" name="radio" id="radio" value="radio"/>
+                                </label> 大学生
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td colspan="3" style="padding-top:8px;"><input name="" type="image"
+                                                                                src="images/btn03.gif"/></td>
+                            </tr>
+                        </table>
+                    </form>
                 </div>
 
 
