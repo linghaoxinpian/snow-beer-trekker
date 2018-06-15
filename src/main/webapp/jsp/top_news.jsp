@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -45,7 +46,16 @@
                         <div class="left"><img src="static/images/np1.jpg" width="184" height="127"/></div>
                         <div class="right">
                             <a class="titlenews" href="display?id=${news_item.id}">${news_item.title}</a>
-                            <div class="newsinfo">${news_item.content}<a href="#">查看详细&gt;&gt;</a>
+                            <div class="newsinfo">
+                                <c:choose>
+                                    <c:when test="${news_item.content.length()>113}">
+                                        ${fn:substring(news_item.content,0,113)}
+                                    </c:when>
+                                    <c:otherwise>
+                                        ${news_item.content}
+                                    </c:otherwise>
+                                </c:choose>
+                                <a href="display?id=${news_item.id}">查看详细&gt;&gt;</a>
                             </div>
                         </div>
                         <div class="clear_0"></div>

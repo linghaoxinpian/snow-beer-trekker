@@ -8,7 +8,7 @@
         VALUES (#{title},#{content})
     </insert>
 
-    <select id="findAll" resultType="com.shmilyou.snowbeertrekker.entity.News">
+    <select id="findAll">
         <include refid="base.select" />
         news
     </select>

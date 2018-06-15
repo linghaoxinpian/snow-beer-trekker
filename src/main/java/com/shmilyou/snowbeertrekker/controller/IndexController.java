@@ -1,13 +1,7 @@
 package com.shmilyou.snowbeertrekker.controller;
 
-import com.shmilyou.snowbeertrekker.entity.Footage;
-import com.shmilyou.snowbeertrekker.entity.News;
-import com.shmilyou.snowbeertrekker.entity.Review;
-import com.shmilyou.snowbeertrekker.entity.Video;
-import com.shmilyou.snowbeertrekker.service.FootageService;
-import com.shmilyou.snowbeertrekker.service.NewsService;
-import com.shmilyou.snowbeertrekker.service.ReviewService;
-import com.shmilyou.snowbeertrekker.service.VideoService;
+import com.shmilyou.snowbeertrekker.entity.*;
+import com.shmilyou.snowbeertrekker.service.*;
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +25,8 @@ public class IndexController {
     VideoService videoService;
     @Autowired
     NewsService newsService;
+    @Autowired
+    AllianceService allianceService;
 
     @RequestMapping(value = {"/", "index", "index.html"})
     public String index() {
@@ -74,9 +70,16 @@ public class IndexController {
         return "sales";
     }
 
-    @RequestMapping("work")
-    public String work(){
-        return "work";
+    @RequestMapping("alliance")
+    public String work(ModelMap modelMap){
+        List<Alliance> alliances = allianceService.findAll();
+        modelMap.addAttribute("alliances",alliances);
+        return "alliance";
+    }
+
+    @RequestMapping("universityAlliance")
+    public String universityAlliance(){
+        return "university_alliance";
     }
 
     @RequestMapping("topNews")

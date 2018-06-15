@@ -1,5 +1,4 @@
-    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-        <div class="bottombg">
+    <div class="bottombg">
         <div class="bottombox_sub">
         <div class="prize"><a href="#"></a></div>
         </div>
@@ -19,7 +18,7 @@
         <li class="nav03"><a href="news" class="aoff"></a></li>
         <li class="nav04"><a href="review" class="aoff"></a></li>
         <li class="nav05"><a href="sales" class="aoff"></a></li>
-        <li class="nav06"><a href="work" class="aoff"></a></li>
+        <li class="nav06"><a href="alliance" class="aoff"></a></li>
         </ul>
         </div>
         <script type="text/javascript">
