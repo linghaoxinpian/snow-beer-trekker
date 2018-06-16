@@ -1,4 +1,5 @@
-    <div class="bottombg">
+    <%@page pageEncoding="UTF-8" %>
+        <div class="bottombg">
         <div class="bottombox_sub">
         <div class="prize"><a href="#"></a></div>
         </div>
