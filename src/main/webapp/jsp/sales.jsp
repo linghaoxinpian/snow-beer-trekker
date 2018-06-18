@@ -1,14 +1,15 @@
+<%@page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>雪花纯生中国古建筑摄影大赛安徽分赛区</title>
-    <link href="css/css_whir.css" rel="stylesheet" type="text/css">
-    <script language="javascript" src="script/jquery.min.js"></script>
-    <script language="javascript" src="script/ScrollPic.js"></script>
+    <link href="static/css/css_whir.css" rel="stylesheet" type="text/css">
+    <script language="javascript" src="static/script/jquery.min.js"></script>
+    <script language="javascript" src="static/script/ScrollPic.js"></script>
 
     <!--[if IE 6]>
-    <script type="text/javascript" src="script/iepng.js"></script>
+    <script type="text/javascript" src="static/script/iepng.js"></script>
     <script type="text/javascript">
         EvPNG.fix('img,.topbg,.nav,.aon,.aoff,.bottombox,.notice,.bottombox_sub,.menu,.rightbox'); </script>
     <![endif]-->
@@ -17,12 +18,7 @@
 <body>
 <div class="mainbox">
     <div class="topbox">
-        <div class="topbg">会员登录<input name="" type="text" class="text01"/><input name="" type="text"
-                                                                                 class="text01"/><input name=""
-                                                                                                        type="button"
-                                                                                                        value="登录"
-                                                                                                        class="btn01"/><a
-                href="#">忘记密码</a>|<a href="login.html">免费注册</a></div>
+        <%@include file="layout/topLogin.jsp"%>
 
         <!--左菜单-->
         <div class="menu">
@@ -37,39 +33,27 @@
                 </tr>
             </table>
         </div>
-        <script type="text/javascript">
-            jQuery(".menu h1").bind("mouseover", function () {
-                jQuery(this).attr("class", "aon");
-            });
-
-            jQuery(".menu h1").bind("mouseleave", function () {
-                jQuery(this).attr("class", "aoff");
-            });
-        </script>
+        <script src="static/script/menuBottom.js"></script>
         <!--左菜单-->
 
         <!--右侧内容-->
-
         <div class="rightbox">
             <div class="scrllobox">
-                <div><img src="images/t01.gif" width="178" height="49"/></div>
+                <div><img src="static/images/t01.gif" width="178" height="49"/></div>
                 <div class="sales">
                     <DIV class="blk_29">
                         <a class="LeftBotton" id="LeftArr"></a>
                         <DIV class="Cont" id="ISL_Cont_1">
-                            <DIV class="box"><a href="#"><img src="images/p1.jpg" width="136" height="105"/><br/>高山双人帐篷(14)</a>
+                            <DIV class="box"><a href="#"><img src="static/images/p1.jpg" width="136" height="105"/><br/>高山双人帐篷(14)</a>
                             </DIV>
-                            <DIV class="box"><a href="#"><img src="images/p4.jpg"/><br/>户外越野背包(14)</a></DIV>
-                            <DIV class="box"><a href="#"><img src="images/p5.jpg"/><br/>户外野餐垫(14)</a></DIV>
-                            <DIV class="box"><a href="#"><img src="images/p6.jpg"/><br/>户外水壶(28)</a></DIV>
-
-
+                            <DIV class="box"><a href="#"><img src="static/images/p4.jpg"/><br/>户外越野背包(14)</a></DIV>
+                            <DIV class="box"><a href="#"><img src="static/images/p5.jpg"/><br/>户外野餐垫(14)</a></DIV>
+                            <DIV class="box"><a href="#"><img src="static/images/p6.jpg"/><br/>户外水壶(28)</a></DIV>
                         </DIV>
                         <a class="RightBotton" id="RightArr"></a>
                     </DIV>
                     <SCRIPT language=javascript type=text/javascript>
-                        <!--//-->
-                        <![CDATA[//><!--
+
                         var scrollPic_02 = new ScrollPic();
                         scrollPic_02.scrollContId = "ISL_Cont_1"; //内容容器ID
                         scrollPic_02.arrLeftId = "LeftArr";//左箭头ID
@@ -81,12 +65,9 @@
                         scrollPic_02.autoPlay = false; //自动播放
                         scrollPic_02.autoPlayTime = 3; //自动播放间隔时间(秒)
                         scrollPic_02.initialize(); //初始化
-
-                        //--><!
-                        ]]>
                     </SCRIPT>
                 </div>
-                <div class="clear"><img src="images/t02.gif"/></div>
+                <div class="clear"><img src="static/images/t02.gif"/></div>
                 <div class="sales_news">
                     <div id="colee11" style="overflow:hidden;height:95px;">
                         <div id="colee111">
@@ -128,31 +109,16 @@
                             MyMar111 = setInterval(Marquee111, speed11)
                         }
                     </script>
-
                 </div>
-
                 <div class="clear_1"></div>
-                <div class="pagenr"><a href="#"><img src="images/up.png"/></a><a href="#"><img
-                        src="images/down.png"/></a></div>
-
-
+                <div class="pagenr"><a href="#"><img src="static/images/up.png"/></a><a href="#"><img
+                        src="static/images/down.png"/></a></div>
             </div>
-
-
         </div>
         <!--右侧内容-->
-
     </div>
-
-
-    <div class="logo"><img src="images/man.png"/></div>
-    <div class="hill"><img src="images/hill_sub.png"/></div>
-    <div class="leg"><img src="images/leg_sub.png" width="714" height="100%"/></div>
-    <%@include file="layout/left.jsp" %>
-    <div class="drink"><img src="images/drink.png"/></div>
-
+    <%@include file="layout/main.jsp"%>
     <%@include file="layout/bottom.jsp" %>
-
 </div>
 
 

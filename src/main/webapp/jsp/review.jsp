@@ -34,7 +34,7 @@
                 </tr>
             </table>
         </div>
-        <script src="../static/script/menuBottom.js" ></script>
+        <script src="static/script/menuBottom.js" ></script>
         <!--左菜单-->
 
         <!--右侧内容-->
