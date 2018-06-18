@@ -8,11 +8,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -86,9 +90,13 @@ public class IndexController {
 
     @RequestMapping(name = "universityAlliance",method = RequestMethod.POST)
     @ResponseBody
-    public String universityAlliancePost(){
+    public String universityAlliancePost(HttpServletRequest request, UniversityAlliance universityAlliance){
+        logger.info("==========="+universityAlliance.getJob());
+        //response.setContentType("text/html;charset=UTF-8");   这句在@ResponseBody下是没用的，因为web.xml中只解决了post请求，而此注解是get请求需要使用注解中的produces
 
-        return "alert('申请成功!!!')";
+        String baseHref = request.getScheme()+"://"+request.getServerName()+":" + request.getServerPort() + request.getContextPath()+"/";     //baseHref=http://localhost:8080/snow/
+        //return "<script>alert('申请成功!!');window.location.href='index';</script>";  与下句相同
+        return "<script>alert('申请成功!!');window.location.href='"+baseHref+"index"+"';</script>";
     }
 
 

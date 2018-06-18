@@ -4,12 +4,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>雪花纯生中国古建筑摄影大赛安徽分赛区</title>
-    <link href="css/css_whir.css" rel="stylesheet" type="text/css">
-    <script language="javascript" src="script/jquery.min.js"></script>
-    <script language="javascript" src="script/ScrollPic.js"></script>
+    <link href="static/css/css_whir.css" rel="stylesheet" type="text/css">
+    <script language="javascript" src="static/script/jquery.min.js"></script>
+    <script language="javascript" src="static/script/ScrollPic.js"></script>
 
     <!--[if IE 6]>
-    <script type="text/javascript" src="script/iepng.js"></script>
+    <script type="text/javascript" src="static/script/iepng.js"></script>
     <script type="text/javascript">
         EvPNG.fix('img,.topbg,.nav,.aon,.aoff,.bottombox,.notice,.bottombox_sub,.menu,.rightbox'); </script>
     <![endif]-->
@@ -31,7 +31,7 @@
                 </tr>
             </table>
         </div>
-        <script src="../static/script/menuBottom.js"></script>
+        <script src="static/../static/script/menuBottom.js"></script>
         <!--左菜单-->
 
         <!--右侧内容-->
@@ -40,76 +40,79 @@
             <div class="scrllobox" style="padding:30px 66px 0 66px;">
                 <div class="workbox01">
                     <h1>高校社团活动申请合作入口:</h1>
-                    <form action="university_alliance">
+                    <form action="universityAlliance" method="post">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
                                 <td width="191" align="right" class="lefttitle">社团名称：</td>
-                                <td colspan="3"><label>
-                                    <input type="text" name="textfield" id="textfield" class="text02"/>
-                                </label></td>
+                                <td colspan="3">
+                                    <label><input type="text" name="associationName" required="true" value="雪花" id="textfield"
+                                                  class="text02"/></label>
+                                </td>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">推荐社团名称：</td>
-                                <td colspan="3"><input type="text" name="textfield2" id="textfield2" class="text02"
+                                <td colspan="3"><input type="text" name="recommendAssociationName" id="textfield2"
+                                                       class="text02"
                                                        style="width:264px;"/></td>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">所属学校：</td>
-                                <td colspan="3"><input type="text" name="textfield3" id="textfield3" class="text02"/>
+                                <td colspan="3"><input type="text" name="school" required="true" value="ishou" id="textfield3" class="text02"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团负责人：</td>
-                                <td colspan="3"><input type="text" name="textfield4" id="textfield4" class="text02"
+                                <td colspan="3"><input type="text" name="principal" id="textfield4" class="text02"
                                                        style="width:264px;"/>
                                     可填无
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团负责人联系方式：</td>
-                                <td colspan="3"><input type="text" name="textfield5" id="textfield5" class="text02"/>
+                                <td colspan="3"><input type="text" name="principalContact" id="textfield5"
+                                                       class="text02"/>
                                     通讯地址、手机、QQ
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团负责人账号：</td>
-                                <td colspan="3"><input type="text" name="textfield6" id="textfield6" class="text02"
-                                                       style="width:284px;"/>
-                                    登陆勇闯天涯官网的账号，可填无
-                                </td>
+                                <%--<td colspan="3"><input type="text" name="user" id="textfield6" class="text02"--%>
+                                                       <%--style="width:284px;"/>--%>
+                                    <%--登陆勇闯天涯官网的账号，可填无--%>
+                                <%--</td>--%>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团现有成员数量：</td>
-                                <td width="155"><input type="text" name="textfield7" id="textfield7" class="text02"
+                                <td width="155"><input type="text" name="memberNumber" required="true" value="100" id="textfield7" class="text02"
                                                        style="width:100px;"/></td>
                                 <td width="79" align="center">社团网站：</td>
-                                <td width="265"><input type="text" name="textfield13" id="textfield13" class="text02"
+                                <td width="265"><input type="text" name="webSite" id="textfield13" class="text02"
                                                        style="width:160px;"/>
                                     可填无
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团微博地址：</td>
-                                <td colspan="3"><input type="text" name="textfield8" id="textfield8" class="text02"/>
+                                <td colspan="3"><input type="text" name="weiboSite" id="textfield8" class="text02"/>
                                     可填无
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团曾参加的活动/奖励：</td>
-                                <td colspan="3"><input type="text" name="textfield9" id="textfield9" class="text02"
+                                <td colspan="3"><input type="text" name="activity" id="textfield9" class="text02"
                                                        style="width:264px;"/>
                                     可填无
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团所属部门、指导教师姓名：</td>
-                                <td colspan="3"><input type="text" name="textfield10" id="textfield10" class="text02"/>
+                                <td colspan="3"><input type="text" name="advisor" id="textfield10" class="text02"/>
                                     若是，请填写户外俱乐部名称
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">指导教师联系方式：</td>
-                                <td colspan="3"><input type="text" name="textfield11" id="textfield11" class="text02"
+                                <td colspan="3"><input type="text" name="advisorContact" id="textfield11" class="text02"
                                                        style="width:264px;"/>
                                     可填无
                                 </td>
@@ -123,19 +126,20 @@
                             <tr>
                                 <td align="right" class="lefttitle">目前您是：</td>
                                 <td colspan="3"><label>
-                                    <input type="radio" name="radio" id="radio" value="radio"/>
+                                    <input type="radio" name="job" value="society"/>
                                 </label>社会人士 <label>
-                                    <input type="radio" name="radio" id="radio" value="radio"/>
+                                    <input type="radio" name="job" checked="true" value="undergraduate"/>
                                 </label> 大学生
                                 </td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
                                 <td colspan="3" style="padding-top:8px;"><input name="" type="image"
-                                                                                src="images/btn03.gif"/></td>
+                                                                                src="static/images/btn03.gif"/></td>
                             </tr>
                         </table>
                     </form>
+
                 </div>
 
 
