@@ -33,6 +33,8 @@ public class IndexController {
     NewsService newsService;
     @Autowired
     AllianceService allianceService;
+    @Autowired
+    UniversityAllianceService universityAllianceService;
 
     @RequestMapping(value = {"/", "index", "index.html"})
     public String index() {
@@ -93,6 +95,8 @@ public class IndexController {
     public String universityAlliancePost(HttpServletRequest request, UniversityAlliance universityAlliance){
         logger.info("==========="+universityAlliance.getJob());
         //response.setContentType("text/html;charset=UTF-8");   这句在@ResponseBody下是没用的，因为web.xml中只解决了post请求，而此注解是get请求需要使用注解中的produces
+
+        universityAllianceService.addOne(universityAlliance);
 
         String baseHref = request.getScheme()+"://"+request.getServerName()+":" + request.getServerPort() + request.getContextPath()+"/";     //baseHref=http://localhost:8080/snow/
         //return "<script>alert('申请成功!!');window.location.href='index';</script>";  与下句相同

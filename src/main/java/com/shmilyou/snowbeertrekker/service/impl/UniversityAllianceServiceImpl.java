@@ -3,11 +3,14 @@ package com.shmilyou.snowbeertrekker.service.impl;
 import com.shmilyou.snowbeertrekker.dao.UniversityAllianceRepository;
 import com.shmilyou.snowbeertrekker.entity.UniversityAlliance;
 import com.shmilyou.snowbeertrekker.service.BaseService;
+import com.shmilyou.snowbeertrekker.service.UniversityAllianceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class UniversitoryAllianceServiceImpl extends BaseServiceImpl<UniversityAlliance> implements BaseService<UniversityAlliance> {
+@Service
+public class UniversityAllianceServiceImpl extends BaseServiceImpl<UniversityAlliance> implements UniversityAllianceService {
     @Autowired
-    UniversitoryAllianceServiceImpl(UniversityAllianceRepository baseRepository) {
+    UniversityAllianceServiceImpl(UniversityAllianceRepository baseRepository) {
         super(baseRepository);
     }
 }
