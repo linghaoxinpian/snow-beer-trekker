@@ -1,11 +1,13 @@
 package com.shmilyou.snowbeertrekker.entity;
 
 import com.shmilyou.snowbeertrekker.entity.enums.Job;
+import javax.validation.constraints.NotEmpty;
 
 public class UniversityAlliance extends BasePojo {
     private Long id;
 
     //社团名称
+    @NotEmpty
     private String associationName;
 
     //推荐社团名称

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.Assert;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -69,52 +71,54 @@ public class IndexController {
     }
 
     @RequestMapping("news")
-    public String news(){
+    public String news() {
         return "news";
     }
 
     @RequestMapping("sales")
-    public String sales(){
+    public String sales() {
         return "sales";
     }
 
     @RequestMapping("alliance")
-    public String work(ModelMap modelMap){
+    public String work(ModelMap modelMap) {
         List<Alliance> alliances = allianceService.findAll();
-        modelMap.addAttribute("alliances",alliances);
+        modelMap.addAttribute("alliances", alliances);
         return "alliance";
     }
 
-    @RequestMapping(name = "universityAlliance",method = RequestMethod.GET)
-    public String universityAlliance(){
+    @RequestMapping(name = "universityAlliance", method = RequestMethod.GET)
+    public String universityAlliance() {
         return "university_alliance";
     }
 
-    @RequestMapping(name = "universityAlliance",method = RequestMethod.POST)
-    @ResponseBody
-    public String universityAlliancePost(HttpServletRequest request, UniversityAlliance universityAlliance){
-        logger.info("==========="+universityAlliance.getJob());
+    @RequestMapping(name = "universityAlliance", method = RequestMethod.POST)
+    public String universityAlliancePost(HttpServletRequest request,HttpServletResponse response, @ModelAttribute("universityAlliance") @Validated UniversityAlliance universityAlliance, BindingResult bindingResult) {
+        logger.info("===========" + universityAlliance.getJob());
         //response.setContentType("text/html;charset=UTF-8");   这句在@ResponseBody下是没用的，因为web.xml中只解决了post请求，而此注解是get请求需要使用注解中的produces
 
+        if(bindingResult.hasErrors()){  //不能获取错误，待处理
+            return "university_alliance";
+        }
         universityAllianceService.addOne(universityAlliance);
-
-        String baseHref = request.getScheme()+"://"+request.getServerName()+":" + request.getServerPort() + request.getContextPath()+"/";     //baseHref=http://localhost:8080/snow/
+        response.setContentType("text/javascript;charset=utf-8");  //不使用@ResponseBody返回json
+        String baseHref = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";     //baseHref=http://localhost:8080/snow/
         //return "<script>alert('申请成功!!');window.location.href='index';</script>";  与下句相同
-        return "<script>alert('申请成功!!');window.location.href='"+baseHref+"index"+"';</script>";
+        return "<script>alert('申请成功!!');window.location.href='" + baseHref + "index" + "';</script>";
     }
 
 
     @RequestMapping("topNews")
-    public String topNews(ModelMap map){
+    public String topNews(ModelMap map) {
         List<News> news = newsService.findAll();
-        map.addAttribute("news",news);
+        map.addAttribute("news", news);
         return "top_news";
     }
 
     @RequestMapping("display")
-    public String display(@Param("id")Long id,ModelMap modelMap){
+    public String display(@Param("id") Long id, ModelMap modelMap) {
         News news = newsService.findOne(Long.class, id);
-        modelMap.addAttribute("news",news);
+        modelMap.addAttribute("news", news);
         return "display";
     }
 }

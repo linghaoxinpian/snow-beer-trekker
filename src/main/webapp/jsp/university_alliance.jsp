@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,13 +41,14 @@
             <div class="scrllobox" style="padding:30px 66px 0 66px;">
                 <div class="workbox01">
                     <h1>高校社团活动申请合作入口:</h1>
-                    <form action="universityAlliance" method="post">
+                    <%--<form action="universityAlliance" method="post">--%>
+                    <form:form modelAttribute="universityAlliance" method="post" action="universityAlliance">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
                                 <td width="191" align="right" class="lefttitle">社团名称：</td>
                                 <td colspan="3">
-                                    <label><input type="text" name="associationName" required="true" value="雪花" id="textfield"
-                                                  class="text02"/></label>
+                                        <label><input type="text" name="associationName" id="textfield"
+                                        class="text02"/></label><form:errors path="associationName" />
                                 </td>
                             </tr>
                             <tr>
@@ -57,7 +59,8 @@
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">所属学校：</td>
-                                <td colspan="3"><input type="text" name="school" required="true" value="ishou" id="textfield3" class="text02"/>
+                                <td colspan="3"><input type="text" name="school" required="true" value="ishou"
+                                                       id="textfield3" class="text02"/>
                                 </td>
                             </tr>
                             <tr>
@@ -76,14 +79,15 @@
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团负责人账号：</td>
-                                <%--<td colspan="3"><input type="text" name="user" id="textfield6" class="text02"--%>
-                                                       <%--style="width:284px;"/>--%>
+                                    <%--<td colspan="3"><input type="text" name="user" id="textfield6" class="text02"--%>
+                                    <%--style="width:284px;"/>--%>
                                     <%--登陆勇闯天涯官网的账号，可填无--%>
-                                <%--</td>--%>
+                                    <%--</td>--%>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团现有成员数量：</td>
-                                <td width="155"><input type="text" name="memberNumber" required="true" value="100" id="textfield7" class="text02"
+                                <td width="155"><input type="text" name="memberNumber" required="true" value="100"
+                                                       id="textfield7" class="text02"
                                                        style="width:100px;"/></td>
                                 <td width="79" align="center">社团网站：</td>
                                 <td width="265"><input type="text" name="webSite" id="textfield13" class="text02"
@@ -138,7 +142,8 @@
                                                                                 src="static/images/btn03.gif"/></td>
                             </tr>
                         </table>
-                    </form>
+                    </form:form>
+                    <%--</form>--%>
 
                 </div>
 
