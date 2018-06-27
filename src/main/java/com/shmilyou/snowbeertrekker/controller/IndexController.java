@@ -17,6 +17,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -35,6 +40,8 @@ public class IndexController {
     AllianceService allianceService;
     @Autowired
     UniversityAllianceService universityAllianceService;
+    @Autowired
+    SalesService salesService;
 
     @RequestMapping(value = {"/", "index", "index.html"})
     public String index() {
@@ -64,7 +71,15 @@ public class IndexController {
     }
 
     @RequestMapping("about")
-    public String about() {
+    public String about(HttpSession session,ModelMap map) throws IOException {
+        String realPath = session.getServletContext().getRealPath("/");
+        File file=new File(realPath+"static/about.txt");
+        FileInputStream fileInputStream=new FileInputStream(file);
+        byte[] bytes = new byte[(int) file.length()];
+        fileInputStream.read(bytes);
+        fileInputStream.close();
+        String fileStr=new String(bytes,"UTF-8");
+        map.addAttribute("aboutStr",fileStr);
         return "about";
     }
 
@@ -74,7 +89,9 @@ public class IndexController {
     }
 
     @RequestMapping("sales")
-    public String sales(){
+    public String sales(ModelMap map){
+        List<Sales> sales = salesService.findAll();
+        map.addAttribute("sales",sales);
         return "sales";
     }
 

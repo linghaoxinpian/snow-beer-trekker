@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,7 +19,7 @@
 <body>
 <div class="mainbox">
     <div class="topbox">
-        <%@include file="layout/topLogin.jsp"%>
+        <%@include file="layout/topLogin.jsp" %>
 
         <!--左菜单-->
         <div class="menu">
@@ -44,11 +45,9 @@
                     <DIV class="blk_29">
                         <a class="LeftBotton" id="LeftArr"></a>
                         <DIV class="Cont" id="ISL_Cont_1">
-                            <DIV class="box"><a href="#"><img src="static/images/p1.jpg" width="136" height="105"/><br/>高山双人帐篷(14)</a>
-                            </DIV>
-                            <DIV class="box"><a href="#"><img src="static/images/p4.jpg"/><br/>户外越野背包(14)</a></DIV>
-                            <DIV class="box"><a href="#"><img src="static/images/p5.jpg"/><br/>户外野餐垫(14)</a></DIV>
-                            <DIV class="box"><a href="#"><img src="static/images/p6.jpg"/><br/>户外水壶(28)</a></DIV>
+                            <c:forEach var="sale" items="${sales}" end="4">
+                                <DIV class="box"><a href="#"><img src="static/images/${sale.picture}"/><br/>${sale.name}(${sale.total})</a></DIV>
+                            </c:forEach>
                         </DIV>
                         <a class="RightBotton" id="RightArr"></a>
                     </DIV>
@@ -117,7 +116,7 @@
         </div>
         <!--右侧内容-->
     </div>
-    <%@include file="layout/main.jsp"%>
+    <%@include file="layout/main.jsp" %>
     <%@include file="layout/bottom.jsp" %>
 </div>
 
