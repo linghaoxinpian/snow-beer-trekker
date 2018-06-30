@@ -42,6 +42,8 @@ public class IndexController {
     UniversityAllianceService universityAllianceService;
     @Autowired
     SalesService salesService;
+    @Autowired
+    UserService userService;
 
     @RequestMapping(value = {"/", "index", "index.html"})
     public String index() {
@@ -71,67 +73,82 @@ public class IndexController {
     }
 
     @RequestMapping("about")
-    public String about(HttpSession session,ModelMap map) throws IOException {
+    public String about(HttpSession session, ModelMap map) throws IOException {
+        //读取本地文件
         String realPath = session.getServletContext().getRealPath("/");
-        File file=new File(realPath+"static/about.txt");
-        FileInputStream fileInputStream=new FileInputStream(file);
+        File file = new File(realPath + "static/about.txt");
+        FileInputStream fileInputStream = new FileInputStream(file);
         byte[] bytes = new byte[(int) file.length()];
         fileInputStream.read(bytes);
         fileInputStream.close();
-        String fileStr=new String(bytes,"UTF-8");
-        map.addAttribute("aboutStr",fileStr);
+        String fileStr = new String(bytes, "UTF-8");
+        map.addAttribute("aboutStr", fileStr);
         return "about";
     }
 
     @RequestMapping("news")
-    public String news(){
+    public String news() {
         return "news";
     }
 
     @RequestMapping("sales")
-    public String sales(ModelMap map){
+    public String sales(ModelMap map) {
         List<Sales> sales = salesService.findAll();
-        map.addAttribute("sales",sales);
+        map.addAttribute("sales", sales);
         return "sales";
     }
 
     @RequestMapping("alliance")
-    public String work(ModelMap modelMap){
+    public String work(ModelMap modelMap) {
         List<Alliance> alliances = allianceService.findAll();
-        modelMap.addAttribute("alliances",alliances);
+        modelMap.addAttribute("alliances", alliances);
         return "alliance";
     }
 
-    @RequestMapping(name = "universityAlliance",method = RequestMethod.GET)
-    public String universityAlliance(){
+    @RequestMapping(name = "universityAlliance", method = RequestMethod.GET)
+    public String universityAlliance() {
         return "university_alliance";
     }
 
-    @RequestMapping(name = "universityAlliance",method = RequestMethod.POST)
+    @RequestMapping(name = "universityAlliance", method = RequestMethod.POST)
     @ResponseBody
-    public String universityAlliancePost(HttpServletRequest request, UniversityAlliance universityAlliance){
-        logger.info("==========="+universityAlliance.getJob());
+    public String universityAlliancePost(HttpServletRequest request, UniversityAlliance universityAlliance) {
+        logger.info("===========" + universityAlliance.getJob());
         //response.setContentType("text/html;charset=UTF-8");   这句在@ResponseBody下是没用的，因为web.xml中只解决了post请求，而此注解是get请求需要使用注解中的produces
 
         universityAllianceService.addOne(universityAlliance);
 
-        String baseHref = request.getScheme()+"://"+request.getServerName()+":" + request.getServerPort() + request.getContextPath()+"/";     //baseHref=http://localhost:8080/snow/
+        String baseHref = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";     //baseHref=http://localhost:8080/snow/
         //return "<script>alert('申请成功!!');window.location.href='index';</script>";  与下句相同
-        return "<script>alert('申请成功!!');window.location.href='"+baseHref+"index"+"';</script>";
+        return "<script>alert('申请成功!!');window.location.href='" + baseHref + "index" + "';</script>";
     }
 
 
     @RequestMapping("topNews")
-    public String topNews(ModelMap map){
+    public String topNews(ModelMap map) {
         List<News> news = newsService.findAll();
-        map.addAttribute("news",news);
+        map.addAttribute("news", news);
         return "top_news";
     }
 
     @RequestMapping("display")
-    public String display(@Param("id")Long id,ModelMap modelMap){
+    public String display(@Param("id") Long id, ModelMap modelMap) {
         News news = newsService.findOne(Long.class, id);
-        modelMap.addAttribute("news",news);
+        modelMap.addAttribute("news", news);
         return "display";
     }
+
+    @RequestMapping(value = "register", method = RequestMethod.GET)
+    public String registerPage(ModelMap modelMap) {
+        modelMap.addAttribute("user", new User());
+        return "register";
+    }
+
+    @RequestMapping(value = "register", method = RequestMethod.POST)
+    public String register(@ModelAttribute("user") User user) {
+        Assert.notNull(user.getKnowWay());
+        userService.addOne(user);
+        return "index";
+    }
+
 }

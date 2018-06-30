@@ -8,6 +8,8 @@ public class User extends BasePojo {
 
     private String idCard;
 
+    private int sex;
+
     private String phone;
 
     private String email;
@@ -17,7 +19,7 @@ public class User extends BasePojo {
     private String city;
 
     //获知渠道
-    private String konwWay;
+    private String knowWay;
 
     //历年是否参加过
     private int attended;
@@ -30,22 +32,24 @@ public class User extends BasePojo {
     public User() {
     }
 
-    public User(String name,String konwWay, int attended, int outdoorClubVip) {
+    public User(String name,int sex,String knowWay, int attended, int outdoorClubVip) {
         this.name = name;
-        this.konwWay=konwWay;
+        this.sex=sex;
+        this.knowWay=knowWay;
         this.attended = attended;
         this.outdoorClubVip = outdoorClubVip;
     }
 
-    public User(String name, String idCard, String phone, String email, String address, String city, String konwWay, int attended, int outdoorClubVip, String photo) {
+    public User(String name,int sex, String idCard, String phone, String email, String address, String city, String knowWay, int attended, int outdoorClubVip, String photo) {
         this.id = id;
         this.name = name;
+        this.sex=sex;
         this.idCard = idCard;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.city = city;
-        this.konwWay = konwWay;
+        this.knowWay = knowWay;
         this.attended = attended;
         this.outdoorClubVip = outdoorClubVip;
         this.photo = photo;
@@ -109,12 +113,12 @@ public class User extends BasePojo {
         this.city = city;
     }
 
-    public String getKonwWay() {
-        return konwWay;
+    public String getKnowWay() {
+        return knowWay;
     }
 
-    public void setKonwWay(String konwWay) {
-        this.konwWay = konwWay;
+    public void setKnowWay(String knowWay) {
+        this.knowWay = knowWay;
     }
 
     public int getAttended() {
@@ -139,5 +143,13 @@ public class User extends BasePojo {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
     }
 }

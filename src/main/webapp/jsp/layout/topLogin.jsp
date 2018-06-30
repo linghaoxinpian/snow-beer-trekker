@@ -4,4 +4,4 @@
         type="button"
         value="登录"
         class="btn01"/><a
-        href="static/#">忘记密码</a>|<a href="static/login.html">免费注册</a></div>
+        href="static/#">忘记密码</a>|<a href="register">免费注册</a></div>

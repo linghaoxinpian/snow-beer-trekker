@@ -22,7 +22,7 @@ public class UserRepositoryTest {
 
     @Test
     public void insertOne_test() {
-        User user=new User("xxxxxxxx","ad",0,0);
+        User user=new User("xxxxxxxx",0,"ad",0,0);
         userRepository.insertOne(user);
         Assert.notNull(user.getId());
     }
