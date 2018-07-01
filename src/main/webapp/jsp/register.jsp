@@ -63,7 +63,7 @@
                                 <div class="workbox01" style="padding:0;">
                                     <div class="title01">雪花勇闯天涯挑战基地在线报名：</div>
                                     <h1>第一步： 勇者报名</h1>
-                                    <form:form action="register" method="post" modelAttribute="user">
+                                    <form:form action="register" method="post" modelAttribute="user" enctype="multipart/form-data">
                                         <table width="100%" border="0" cellspacing="3" cellpadding="0" class="bmtable">
                                             <tr>
                                                 <td width="191" align="right" class="lefttitle">请输入您的真实姓名：</td>
@@ -143,7 +143,7 @@
                                             <tr>
                                                 <td align="right" class="lefttitle">上传户外照片：</td>
                                                 <td><label>
-                                                    <input type="file" name="photo" id="fileField"/>
+                                                    <input type="file" name="photoFile" id="fileField"/>
                                                 </label><span class="info">(不得大于500K的图片)</span></td>
                                             </tr>
 

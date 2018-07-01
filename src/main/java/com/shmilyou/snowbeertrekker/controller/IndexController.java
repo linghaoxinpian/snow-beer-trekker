@@ -2,6 +2,7 @@ package com.shmilyou.snowbeertrekker.controller;
 
 import com.shmilyou.snowbeertrekker.entity.*;
 import com.shmilyou.snowbeertrekker.service.*;
+import com.shmilyou.snowbeertrekker.utils.Constant;
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,20 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import sun.security.provider.MD5;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class IndexController {
@@ -145,8 +143,15 @@ public class IndexController {
     }
 
     @RequestMapping(value = "register", method = RequestMethod.POST)
-    public String register(@ModelAttribute("user") User user) {
-        Assert.notNull(user.getKnowWay());
+    public String register(@ModelAttribute("user") User user, @RequestParam("photoFile")MultipartFile file,HttpSession session) throws IOException {
+        String fileName = file.getOriginalFilename();
+        String fileType = fileName.substring(fileName.lastIndexOf("."));
+        if(".png".equals(fileType) || ".jpg".equals(fileType) || ".jpeg".equals(fileType)){
+            String saveFileName=UUID.randomUUID().toString()+fileType;
+            String realPath=session.getServletContext().getRealPath("/");
+            file.transferTo(new File(realPath+Constant.PICTURE+saveFileName));
+            user.setPhoto(saveFileName);
+        }
         userService.addOne(user);
         return "index";
     }

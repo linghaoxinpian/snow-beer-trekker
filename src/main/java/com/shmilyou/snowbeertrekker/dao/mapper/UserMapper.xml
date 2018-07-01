@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shmilyou.snowbeertrekker.dao.UserRepository">
     <insert id="insertOne" parameterType="com.shmilyou.snowbeertrekker.entity.User" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO `snowbeertrekker`.`user`(`name`,sex, `know_way`, `attended`, `outdoor_club_vip`)
-        VALUES (#{name},#{sex}, #{knowWay}, #{attended}, #{outdoorClubVip})
+        INSERT INTO `snowbeertrekker`.`user`(`name`,sex, `know_way`, `attended`, `outdoor_club_vip`,photo)
+        VALUES (#{name},#{sex}, #{knowWay}, #{attended}, #{outdoorClubVip},#{photo})
     </insert>
 
     <select id="findAll" resultType="com.shmilyou.snowbeertrekker.entity.User">
