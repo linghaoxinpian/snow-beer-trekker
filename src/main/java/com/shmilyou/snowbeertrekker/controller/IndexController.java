@@ -160,4 +160,8 @@ public class IndexController {
     public String nullPoint(){
         throw new NullPointerException("空指针异常!!!");
     }
+    @RequestMapping(value = "arrayIndexOut")
+    public String arrayIndexOut(){
+        throw new ArrayIndexOutOfBoundsException("数组越界!!!");
+    }
 }
