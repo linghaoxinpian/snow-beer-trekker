@@ -160,8 +160,22 @@ public class IndexController {
     public String nullPoint(){
         throw new NullPointerException("空指针异常!!!");
     }
+
     @RequestMapping(value = "arrayIndexOut")
     public String arrayIndexOut(){
         throw new ArrayIndexOutOfBoundsException("数组越界!!!");
+    }
+
+    @RequestMapping(value = "illegalArgument")
+    public String illegalArgument(){
+        throw new IllegalArgumentException("参数非法!!!");
+    }
+
+    @ExceptionHandler(value = {IllegalArgumentException.class})
+    public ModelAndView innerException(Exception ex){
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.addObject("ex",ex);
+        modelAndView.setViewName("error2");
+        return modelAndView;
     }
 }
