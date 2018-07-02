@@ -103,12 +103,12 @@ public class IndexController {
         return "alliance";
     }
 
-    @RequestMapping(name = "universityAlliance", method = RequestMethod.GET)
+    @RequestMapping(value = "universityAlliance", method = RequestMethod.GET)
     public String universityAlliance() {
         return "university_alliance";
     }
 
-    @RequestMapping(name = "universityAlliance", method = RequestMethod.POST)
+    @RequestMapping(value = "universityAlliance", method = RequestMethod.POST)
     @ResponseBody
     public String universityAlliancePost(HttpServletRequest request, UniversityAlliance universityAlliance) {
         logger.info("===========" + universityAlliance.getJob());
@@ -156,4 +156,8 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping(value = "nullPoint")
+    public String nullPoint(){
+        throw new NullPointerException("空指针异常!!!");
+    }
 }

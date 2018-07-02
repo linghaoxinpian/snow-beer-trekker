@@ -52,4 +52,15 @@
         <property name="maxUploadSize" value="5242880"/>
     </bean>
 
+    <!-- 6异常处理 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="defaultErrorView" value="error"></property>
+        <property name="exceptionAttribute" value="ex"></property>
+        <!-- 不同类型的异常区别对待(可选) -->
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.NullPointerException">error/error_null_point</prop> <!-- value为错误页面 -->
+            </props>
+        </property>
+    </bean>
 </beans>
