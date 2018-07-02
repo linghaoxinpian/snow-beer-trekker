@@ -37,7 +37,7 @@ public class ControllerTest {
     public void nullPointTest() throws Exception {
         ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.get("/index"));
         MvcResult mvcResult = resultActions.andReturn();
-        logger.info("=========="+mvcResult.getResponse().getContentAsString());
+        logger.info("=========="+mvcResult.getResponse().getContentAsString()); 
 
     }
 }
