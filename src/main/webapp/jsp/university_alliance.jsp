@@ -13,6 +13,22 @@
     <script type="text/javascript">
         EvPNG.fix('img,.topbg,.nav,.aon,.aoff,.bottombox,.notice,.bottombox_sub,.menu,.rightbox'); </script>
     <![endif]-->
+    <script>
+        function userIdValid(userId) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4){
+                    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+                        alert(xhr.responseText);
+                    } else {
+                        alert("Request was unsuccessful: " + xhr.status);
+                    }
+                }
+            };
+            xhr.open("get", "example.txt", true);
+            xhr.send(null);
+        }
+    </script>
 </head>
 
 <body>
@@ -45,7 +61,8 @@
                             <tr>
                                 <td width="191" align="right" class="lefttitle">社团名称：</td>
                                 <td colspan="3">
-                                    <label><input type="text" name="associationName" required="true" value="雪花" id="textfield"
+                                    <label><input type="text" name="associationName" required="true" value="雪花"
+                                                  id="textfield"
                                                   class="text02"/></label>
                                 </td>
                             </tr>
@@ -57,7 +74,8 @@
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">所属学校：</td>
-                                <td colspan="3"><input type="text" name="school" required="true" value="ishou" id="textfield3" class="text02"/>
+                                <td colspan="3"><input type="text" name="school" required="true" value="ishou"
+                                                       id="textfield3" class="text02"/>
                                 </td>
                             </tr>
                             <tr>
@@ -76,14 +94,16 @@
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团负责人账号：</td>
-                                <td colspan="3"><input type="text" name="user_id" value="12" id="textfield6" class="text02"
-                                                       style="width:284px;"/>
+                                <td colspan="3">
+                                    <input type="text" name="user_id" value="12" id="textfield6" class="text02" onchange="userIdValid(this.value)"
+                                           style="width:284px;"/>
                                     登陆勇闯天涯官网的账号，可填无
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团现有成员数量：</td>
-                                <td width="155"><input type="text" name="memberNumber" required="true" value="100" id="textfield7" class="text02"
+                                <td width="155"><input type="text" name="memberNumber" required="true" value="100"
+                                                       id="textfield7" class="text02"
                                                        style="width:100px;"/></td>
                                 <td width="79" align="center">社团网站：</td>
                                 <td width="265"><input type="text" name="webSite" id="textfield13" class="text02"
