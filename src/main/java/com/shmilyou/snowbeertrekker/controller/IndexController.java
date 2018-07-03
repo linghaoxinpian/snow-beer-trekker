@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -114,6 +115,13 @@ public class IndexController {
         logger.info("===========" + universityAlliance.getJob());
         //response.setContentType("text/html;charset=UTF-8");   这句在@ResponseBody下是没用的，因为web.xml中只解决了post请求，而此注解是get请求需要使用注解中的produces
 
+        //添加帐号
+        String user_id = request.getParameter("user_id");
+        if (!StringUtils.isEmpty(user_id)) {
+            User user=new User();
+            user.setId(Long.valueOf(user_id));
+            universityAlliance.setUser(user);
+        }
         universityAllianceService.addOne(universityAlliance);
 
         String baseHref = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";     //baseHref=http://localhost:8080/snow/
@@ -143,13 +151,13 @@ public class IndexController {
     }
 
     @RequestMapping(value = "register", method = RequestMethod.POST)
-    public String register(@ModelAttribute("user") User user, @RequestParam("photoFile")MultipartFile file,HttpSession session) throws IOException {
+    public String register(@ModelAttribute("user") User user, @RequestParam("photoFile") MultipartFile file, HttpSession session) throws IOException {
         String fileName = file.getOriginalFilename();
         String fileType = fileName.substring(fileName.lastIndexOf("."));
-        if(".png".equals(fileType) || ".jpg".equals(fileType) || ".jpeg".equals(fileType)){
-            String saveFileName=UUID.randomUUID().toString()+fileType;
-            String realPath=session.getServletContext().getRealPath("/");
-            file.transferTo(new File(realPath+Constant.PICTURE+saveFileName));
+        if (".png".equals(fileType) || ".jpg".equals(fileType) || ".jpeg".equals(fileType)) {
+            String saveFileName = UUID.randomUUID().toString() + fileType;
+            String realPath = session.getServletContext().getRealPath("/");
+            file.transferTo(new File(realPath + Constant.PICTURE + saveFileName));
             user.setPhoto(saveFileName);
         }
         userService.addOne(user);
@@ -157,24 +165,24 @@ public class IndexController {
     }
 
     @RequestMapping(value = "nullPoint")
-    public String nullPoint(){
+    public String nullPoint() {
         throw new NullPointerException("空指针异常!!!");
     }
 
     @RequestMapping(value = "arrayIndexOut")
-    public String arrayIndexOut(){
+    public String arrayIndexOut() {
         throw new ArrayIndexOutOfBoundsException("数组越界!!!");
     }
 
     @RequestMapping(value = "illegalArgument")
-    public String illegalArgument(){
+    public String illegalArgument() {
         throw new IllegalArgumentException("参数非法!!!");
     }
 
     @ExceptionHandler(value = {IllegalArgumentException.class})
-    public ModelAndView innerException(Exception ex){
-        ModelAndView modelAndView=new ModelAndView();
-        modelAndView.addObject("ex",ex);
+    public ModelAndView innerException(Exception ex) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("ex", ex);
         modelAndView.setViewName("error2");
         return modelAndView;
     }

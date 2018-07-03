@@ -76,10 +76,10 @@
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团负责人账号：</td>
-                                <%--<td colspan="3"><input type="text" name="user" id="textfield6" class="text02"--%>
-                                                       <%--style="width:284px;"/>--%>
-                                    <%--登陆勇闯天涯官网的账号，可填无--%>
-                                <%--</td>--%>
+                                <td colspan="3"><input type="text" name="user_id" value="12" id="textfield6" class="text02"
+                                                       style="width:284px;"/>
+                                    登陆勇闯天涯官网的账号，可填无
+                                </td>
                             </tr>
                             <tr>
                                 <td align="right" class="lefttitle">社团现有成员数量：</td>

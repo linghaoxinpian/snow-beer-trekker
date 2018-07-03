@@ -1,6 +1,7 @@
 package com.shmilyou.snowbeertrekker.dao;
 
 import com.shmilyou.snowbeertrekker.entity.UniversityAlliance;
+import com.shmilyou.snowbeertrekker.entity.User;
 import com.shmilyou.snowbeertrekker.entity.enums.Job;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,13 +24,23 @@ public class UniversityAllianceRepositoryTest {
 
     @Test
     public void insertOne_test() {
-        UniversityAlliance aniversityAlliance = new UniversityAlliance("xxx","ishou",100,Job.undergraduate);
-        aniversityAllianceRepository.insertOne(aniversityAlliance);
-        Assert.notNull(aniversityAlliance.getId());
+        UniversityAlliance universityAlliance = new UniversityAlliance("xxx","ishou",100,Job.undergraduate);
+        User user=new User();
+        user.setId((long) 12);
+        universityAlliance.setUser(user);
+        aniversityAllianceRepository.insertOne(universityAlliance);
+        Assert.notNull(universityAlliance.getId());
 
-        UniversityAlliance aniversityAlliance1 = aniversityAllianceRepository.findOne(Long.class,aniversityAlliance.getId());
+        UniversityAlliance aniversityAlliance1 = aniversityAllianceRepository.findOne(Long.class,universityAlliance.getId());
         Assert.notNull(aniversityAlliance1);
         List<UniversityAlliance> aniversityAlliances = aniversityAllianceRepository.findAll();
         logger.info("==========associationName:"+aniversityAlliances.get(0).getAssociationName());
+    }
+
+    @Test
+    public void findOneTest(){
+        UniversityAlliance one = aniversityAllianceRepository.findOne(Long.class,Long.valueOf(5));
+        Assert.notNull(one);
+        logger.info("============"+one.getUser());
     }
 }

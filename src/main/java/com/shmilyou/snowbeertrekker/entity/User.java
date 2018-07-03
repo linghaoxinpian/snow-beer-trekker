@@ -2,7 +2,7 @@ package com.shmilyou.snowbeertrekker.entity;
 
 public class User extends BasePojo {
 
-    private int id;
+    private Long id;
 
     private String name;
 
@@ -57,11 +57,11 @@ public class User extends BasePojo {
 
     //--------------------属性--------------------
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

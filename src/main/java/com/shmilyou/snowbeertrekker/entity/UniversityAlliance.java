@@ -42,7 +42,9 @@ public class UniversityAlliance extends BasePojo {
     //负责人当前职业
     private Job job;
 
-    public UniversityAlliance() {
+    private User user;
+
+   public UniversityAlliance() {
     }
 
     public UniversityAlliance(String associationName, String school, int memberNumber, Job job) {
@@ -156,5 +158,13 @@ public class UniversityAlliance extends BasePojo {
 
     public void setJob(Job job) {
         this.job = job;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
