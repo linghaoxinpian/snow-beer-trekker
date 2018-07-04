@@ -16,17 +16,24 @@
     <script>
         function userIdValid(userId) {
             var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function(){
-                if (xhr.readyState == 4){
-                    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
-                        alert(xhr.responseText);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+                        var obj = eval("(" + xhr.responseText + ")");
+                        if (obj.code == 200) {
+                            document.getElementById("tip").innerText = "√";
+                        } else {
+                            document.getElementById("tip").innerText = "×";
+                            document.getElementsByName("user_id")[0].value="";
+                        }
                     } else {
-                        alert("Request was unsuccessful: " + xhr.status);
+                        document.getElementById("tip").innerText = "网络无连接";
                     }
                 }
             };
-            xhr.open("get", "example.txt", true);
-            xhr.send(null);
+            xhr.open("post", "validUserId", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("userId=" + userId);
         }
     </script>
 </head>
@@ -95,9 +102,12 @@
                             <tr>
                                 <td align="right" class="lefttitle">社团负责人账号：</td>
                                 <td colspan="3">
-                                    <input type="text" name="user_id" value="12" id="textfield6" class="text02" onchange="userIdValid(this.value)"
+                                    <input type="text" name="user_id" value="12" id="textfield6" class="text02"
+                                           onchange="userIdValid(this.value)"
                                            style="width:284px;"/>
                                     登陆勇闯天涯官网的账号，可填无
+                                    <div id="tip"
+                                         style="position: relative;position: relative;left: 272px;top: -22px;color: green;font-weight: bold; "></div>
                                 </td>
                             </tr>
                             <tr>
@@ -154,8 +164,8 @@
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td colspan="3" style="padding-top:8px;"><input name="" type="image"
-                                                                                src="static/images/btn03.gif"/></td>
+                                <td colspan="3" style="padding-top:8px;">
+                                    <input name="" type="image" src="static/images/btn03.gif" onclick="userIdValid()"/></td>
                             </tr>
                         </table>
                     </form>

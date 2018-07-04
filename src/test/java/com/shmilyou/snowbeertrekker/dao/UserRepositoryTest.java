@@ -32,4 +32,10 @@ public class UserRepositoryTest {
         List<User> users = userRepository.findAll();
         logger.info("================="+users.toString());
     }
+
+    @Test
+    public void findOneTest(){
+        User one = userRepository.findOne(Long.class, Long.valueOf(12));
+        logger.info("================="+one.toString());
+    }
 }

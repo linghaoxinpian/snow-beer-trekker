@@ -12,4 +12,10 @@
         <include refid="base.select" />
         user
     </select>
+
+    <select id="findOne" resultType="com.shmilyou.snowbeertrekker.entity.User">
+        <include refid="base.select" />
+        user
+        WHERE id=#{id}
+    </select>
 </mapper>

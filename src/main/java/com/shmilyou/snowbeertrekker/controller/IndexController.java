@@ -13,13 +13,13 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 public class IndexController {
@@ -116,7 +116,7 @@ public class IndexController {
         //添加帐号
         String user_id = request.getParameter("user_id");
         if (!StringUtils.isEmpty(user_id)) {
-            User user=new User();
+            User user = new User();
             user.setId(Long.valueOf(user_id));
             universityAlliance.setUser(user);
         }
@@ -183,5 +183,20 @@ public class IndexController {
         modelAndView.addObject("ex", ex);
         modelAndView.setViewName("error2");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "validUserId", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> validUserId(String userId) {
+        User one = userService.findOne(Long.class, Long.valueOf(userId));
+        Map<String, String> map = new HashMap<>();
+        map.put("code", "100");
+        map.put("msg", "bad");
+        map.put("data", String.valueOf(new Date().getTime()));  //下一个提交会处理这个时间戳
+        if (one == null) {
+            map.put("code", "200");
+            map.put("msg", "ok");
+        }
+        return map;
     }
 }
