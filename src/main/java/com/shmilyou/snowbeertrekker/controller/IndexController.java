@@ -192,7 +192,7 @@ public class IndexController {
         Map<String, String> map = new HashMap<>();
         map.put("code", "100");
         map.put("msg", "bad");
-        map.put("data", String.valueOf(new Date().getTime()));  //下一个提交会处理这个时间戳
+        map.put("date", String.valueOf(new Date().getTime()));  //下一个提交会处理这个时间戳
         if (one == null) {
             map.put("code", "200");
             map.put("msg", "ok");
