@@ -19,7 +19,23 @@
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
-                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <!-- 日期格式没有被默认转化为json化成时间戳，所以注释掉以下内容 -->
+                    <!--<property name="objectMapper">-->
+                        <!--<bean class="com.fasterxml.jackson.databind.ObjectMapper">-->
+                            <!--<property name="dateFormat">-->
+                                <!--<bean class="java.text.SimpleDateFormat">-->
+                                    <!--<constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />-->
+                                <!--</bean>-->
+                            <!--</property>-->
+                        <!--</bean>-->
+                    <!--</property>-->
+                    <!--<property name="supportedMediaTypes">-->
+                        <!--<list>-->
+                            <!--<value>application/json;charset=UTF-8</value>-->
+                        <!--</list>-->
+                    <!--</property>-->
+                </bean>
                 <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                     <property name="supportedMediaTypes">
                         <list>

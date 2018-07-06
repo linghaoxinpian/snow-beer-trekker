@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
@@ -192,7 +193,7 @@ public class IndexController {
         Map<String, String> map = new HashMap<>();
         map.put("code", "100");
         map.put("msg", "bad");
-        map.put("date", String.valueOf(new Date().getTime()));  //下一个提交会处理这个时间戳
+        map.put("date", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         if (one == null) {
             map.put("code", "200");
             map.put("msg", "ok");
