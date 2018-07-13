@@ -3,6 +3,7 @@ package com.shmilyou.snowbeertrekker.controller;
 import com.shmilyou.snowbeertrekker.entity.*;
 import com.shmilyou.snowbeertrekker.service.*;
 import com.shmilyou.snowbeertrekker.utils.Constant;
+import com.shmilyou.snowbeertrekker.utils.Tools;
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -181,8 +182,8 @@ public class IndexController {
     @ExceptionHandler(value = {IllegalArgumentException.class})
     public ModelAndView innerException(Exception ex) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("ex", ex);
-        modelAndView.setViewName("error2");
+        modelAndView.addObject("ex", Tools.printStackTraceToString(ex));
+        modelAndView.setViewName("error/error2");
         return modelAndView;
     }
 
